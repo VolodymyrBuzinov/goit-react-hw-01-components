@@ -1,8 +1,6 @@
 import PropTypes from 'prop-types';
-import user from '../json-files/user.json'
 import defaultImage from  '../images/default-thumbnail.jpg'
-function Profile() {     
-  const { name, tag, location, avatar = defaultImage, stats } = user;
+function Profile({ name, tag, location, avatar = defaultImage, stats }) {  
    return  <div className="profile">
   <div className="description">
     <img
@@ -34,11 +32,11 @@ function Profile() {
 
 
 Profile.propTypes = {
-    name: PropTypes.string,
-    tag: PropTypes.string,
-    location: PropTypes.string,
-    avatar: PropTypes.string,    
-    stats:  PropTypes.objectOf(PropTypes.number),
+    name: PropTypes.string.isRequired,
+    tag: PropTypes.string.isRequired,
+    location: PropTypes.string.isRequired,
+    avatar: PropTypes.string.isRequired,    
+    stats:  PropTypes.objectOf(PropTypes.number).isRequired,
 };
 
 export default Profile;

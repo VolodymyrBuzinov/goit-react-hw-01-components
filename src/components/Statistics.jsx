@@ -1,20 +1,27 @@
-import statisticalDatas from '../json-files/statistical-data.json'
 import PropTypes from 'prop-types';
 
-export default function Statistics() {
-    return statisticalDatas.map(data => {
-        const { id, label, percentage } = data;
-       return <li key={id} className="item-stat">
-      <span className="label">{label}</span>
-      <span className="percentage">{percentage}%</span>
-    </li>
-    }  
-    ) 
+export default function Statistics({ title, stats }) {
+  return (
+    <div className='statistics'>
+      {title && <h2 className="title">{title}</h2>}
+      <ul className="stat-list">
+        {stats.map(stat => (
+          <li className="item-stat" key={stat.id}>
+            <span className="label">{stat.label}</span>
+            <span className="percentage">{stat.percentage}%</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 }
-
 Statistics.propTypes = {
-    id: PropTypes.string,
-    label: PropTypes.string,
-    percentage: PropTypes.number,    
+  title: PropTypes.string,
+  stats: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.string.isRequired,
+      percentage: PropTypes.number.isRequired,
+    }),
+  ),
 };
 

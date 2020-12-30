@@ -1,7 +1,7 @@
 import Profile from './Profile'
 import Statistics from './Statistics'
-import FriendItem from './FriendItem'
-import TransactionItem from './Transaction-item'
+import FriendList from './FriendList'
+import TransactionHistory from './TransactionHistory'
 import user from '../json-files/user.json'
 import statisticalData from '../json-files/statistical-data.json'
 import friends from '../json-files/friends.json';
@@ -13,11 +13,11 @@ export default function App() {
   location={user.location}
   avatar={user.avatar}
   stats={user.stats}
-        ></Profile>
+        />
         <Statistics title="Upload stats" stats={statisticalData} 
-        ></Statistics>
-        <FriendItem friends={friends}></FriendItem>
-        <TransactionItem transactions={transactions}></TransactionItem>
+        />
+        <FriendList friends={friends}/>
+        <TransactionHistory transactions={transactions}/>
     </>
 }
 

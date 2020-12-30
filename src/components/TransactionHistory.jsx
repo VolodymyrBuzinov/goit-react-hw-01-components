@@ -14,9 +14,9 @@ export default function Transactions({ transactions }) {
                 transactions.map(transaction => {
                     const { id, type, amount, currency } = transaction;
                     return <tr key={id}>
-                        <th>{type}</th>
-                        <th>{amount}</th>
-                        <th>{currency}</th>
+                        <td>{type}</td>
+                        <td>{amount}</td>
+                        <td>{currency}</td>
                     </tr>
                 })
             }
